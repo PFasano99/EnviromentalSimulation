@@ -1,6 +1,7 @@
 # EnviromentalSimulation
 
 This project is a testing for different snippets of C# code in Unity.
+Unity version used: 2020.1.4f1
 
 The follwoig list rappresent the key mapping:
 - WASD                | movement
