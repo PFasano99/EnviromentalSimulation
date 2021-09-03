@@ -1,6 +1,6 @@
 # EnviromentalSimulation
 
-This project is a testing for different snippets of C# code in Unity.
+This project is a testing for different snippets of C# code in Unity to simulate  FPS and platform games.
 
 The follwoig list rappresent the key mapping:
 - WASD                | movement
