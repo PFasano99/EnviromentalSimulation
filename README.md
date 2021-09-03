@@ -1,7 +1,6 @@
 # EnviromentalSimulation
 
 This project is a testing for different snippets of C# code in Unity.
-Unity version used: 2020.1.4f1
 
 The follwoig list rappresent the key mapping:
 - WASD                | movement
@@ -21,4 +20,14 @@ To oganize this project developement and to make a better list of fitures, chang
 
 
 
-**Warning: not every model and textures in this project have been made by me, some have been downloaded from other sources.** 
+
+
+
+To develop this project the following has been used:
+- IDE             | Visula Studio 2019
+- IDE             | Visual Studio Code
+- Game engine     | Unity version 2020.1.4f1
+- 3D Modelling    | Blender version 2.79   | 
+**not every model in this project have been made by me**
+- Graphics editor | Krita version 4.4.8    | 
+**not every texture in this project have been made by me**
