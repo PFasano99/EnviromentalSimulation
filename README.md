@@ -12,7 +12,12 @@ The follwoig list rappresent the key mapping:
 - Shift               | Run
 
 The features present in this simulation are based off FPS and platform games.
-Features list: 
+Features list:
+- basic walking
+- jumping mechanics
+- picking up items  
+- dropping items
+- basic fire and reload  
 
 *This list will be updated as soon as new features are committed.*
 
