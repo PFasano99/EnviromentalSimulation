@@ -93,11 +93,7 @@ public class playerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-<<<<<<< HEAD
            // pickGunGadjet();
-=======
-            pickGunGadjet();
->>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -178,12 +174,8 @@ public class playerController : MonoBehaviour
             else item.transform.position = gunHold.position;
     }
 
-<<<<<<< HEAD
     /*
      *     private void pickGunGadjet()
-=======
-    private void pickGunGadjet()
->>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
     {
         if (gunMenager.isHold)
         {
@@ -219,11 +211,6 @@ public class playerController : MonoBehaviour
             }
         }
     }
-<<<<<<< HEAD
-
      */
 
-=======
-   
->>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
 }
