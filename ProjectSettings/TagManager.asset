@@ -10,6 +10,7 @@ TagManager:
   - scope
   - Ammo
   - ground
+  - Gadjet
   layers:
   - Default
   - TransparentFX

@@ -4957,13 +4957,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7164272505553496203}
-  m_LocalRotation: {x: 0.00000003774895, y: 1.11022296e-16, z: -1.11022296e-16, w: 1}
-  m_LocalPosition: {x: -0.027498007, y: 0.117015205, z: 0.45611382}
+  m_LocalRotation: {x: -0.008726465, y: 0, z: 0, w: 0.999962}
+  m_LocalPosition: {x: -0.027498007, y: 0.1667, z: 0.45611382}
   m_LocalScale: {x: 4.9245696, y: 2.9125495, z: 27.378824}
   m_Children: []
   m_Father: {fileID: 7164272505595460068}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: -1, y: 0, z: 0}
 --- !u!1 &7164272505595291076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5189,22 +5189,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletShell: {fileID: 7164272504445170678}
-  bullet: {fileID: 7164272504445170678}
-  magazine: {fileID: 8030186798402586561, guid: 0b1fc4ad6ec1f8944839d25d690124c1, type: 3}
+  bullet: {fileID: 7164272505553496202}
+  magazine: {fileID: 7164272505492410803}
   bulletShellGO: {fileID: 6295768707112036586, guid: f90c14ca2030aa64885ba2e84eab12be, type: 3}
   bulletGO: {fileID: 5977426582765904981, guid: be9594db15a3c0d468ecdfc48c3398d0, type: 3}
-  magazineGO: {fileID: 1292564374603645942, guid: 0b1fc4ad6ec1f8944839d25d690124c1, type: 3}
+  magazineGO: {fileID: 1113620589733019218, guid: acb2433f7b659484aa82f9eee3e6d8c1, type: 3}
   setRotation: {fileID: 0}
   isHold: 0
   isAutomatic: 0
   isReloading: 0
   bulletAudio: {fileID: 8300000, guid: 758fd29d9a931eb4ba00d37d6dc95f01, type: 3}
   bulletShotAudio: {fileID: 7164272505407121825}
-  volume: 1
+  volume: 0.5
   magazineSpace: 12
   ammoInMagazine: 12
   reloadTime: 3
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 3835123003468442505}
+  impactEffect: {fileID: 786808289122028995, guid: 0a38b40b75cbb844fa789926e8505c95, type: 3}
   rangeFall: 20
   bulletSpeed: 45
   lastBulletPosition: {fileID: 7164272504734826790}
@@ -5212,13 +5213,15 @@ MonoBehaviour:
   fireRate: 0.5
   resourceTypes: 0
   gunRotationYOffset: 0
-  gunRotationXOffset: 0
+  gunRotationXOffset: -4
   gunRotationZOffset: 0
   gunPositionYOffset: 0
   gunPositionXOffset: 0
   gunPositionZOffset: 0
-  gunAimPositionYOffset: 0
-  zoomOnAim: -10
+  gunAimPositionYOffset: 0.2
+  gunAimPositionXOffset: 0
+  gunAimPositionZOffset: 0
+  zoomOnAim: -15
 --- !u!1 &7164272506338265838
 GameObject:
   m_ObjectHideFlags: 0

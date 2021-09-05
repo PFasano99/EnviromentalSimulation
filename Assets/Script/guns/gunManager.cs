@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class gunManager : MonoBehaviour
 {
     public Transform bulletShell, bullet, magazine;
-    public GameObject bulletShellGO, bulletGO, magazineGO;
+    public GameObject bulletShellGO, bulletGO, magazineGO, gadJetBarrel;
 
     public Transform setRotation;
 
@@ -58,6 +58,8 @@ public class gunManager : MonoBehaviour
     [Space]
     [Header("the offset the gun has when picked up and Aiming on the XYZ Rotation")]
     public float gunAimPositionYOffset = 0f;
+    public float gunAimPositionXOffset = 0f;
+    public float gunAimPositionZOffset = 0f;
     [Space]
     public float zoomOnAim = 0f;
 
@@ -167,9 +169,9 @@ public class gunManager : MonoBehaviour
         {
             isReloading = true;
 
-            this.gameObject.transform.localRotation = Quaternion.Euler(this.gameObject.transform.localRotation.x, this.gameObject.transform.localRotation.y, this.gameObject.transform.localRotation.z - 30f);        
+            this.gameObject.transform.localRotation = Quaternion.Euler(gunRotationXOffset, gameObject.transform.localRotation.y, gameObject.transform.localRotation.z - 30f);        
             yield return new WaitForSeconds(second);
-            this.gameObject.transform.localRotation = Quaternion.Euler(this.gameObject.transform.localRotation.x, this.gameObject.transform.localRotation.y, 0);
+            this.gameObject.transform.localRotation = Quaternion.Euler(gunRotationXOffset, gameObject.transform.localRotation.y, 0);
 
             ammoInMagazine = magazineSpace;
             isReloading = false;

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\itemsMenager.cs" />
     <Compile Include="Assets\Script\guns\gunManager.cs" />
     <Compile Include="Assets\Script\plateMenager.cs" />
+    <Compile Include="Assets\Script\gadJet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

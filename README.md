@@ -5,30 +5,32 @@ This project is a testing for different snippets of C# code in Unity to simulate
 Key mapping
 =======
 The follwoig list rappresent the key mapping:
-- WASD                | movement
-- Mouse               | camera rotation
-- Left mouse button   | use item
+- WASD                | Movement
+- Mouse               | Camera rotation
+- Left mouse button   | Use item
 - Right mouse button  | Aim weapon
-- F                   | pick item up
+- F                   | Pick item up
 - Space bar           | Jump
 - Shift               | Run
+- X                   | Drop item in hand  
 
 
 Features
 =======
 The features present in this simulation are based off FPS and platform games.
 Features list:
-- basic walking
-- jumping mechanics
-- picking up items  
-- dropping items
-- basic fire and reload  
+- Basic walking
+- Jumping mechanics
+- Picking up items  
+- Dropping items
+- Basic fire and reload  
+- Pickup gadjets that attach to the weapons
 
 *This list will be updated as soon as new features are committed.*
 
 Software used
 =======
-To oganize this project developement and to make a better list of fitures, changeLogs and other annotations, trello is being used. [EnviromentalSimulation on Trello](https://trello.com/b/Sj27YJwl/enviromentalsimulation)
+To oganize this project developement and to make a better list of features in development, features that will be developed, changeLogs and other annotations, trello is being used. [EnviromentalSimulation on Trello](https://trello.com/b/Sj27YJwl/enviromentalsimulation)
 
 To develop this project the following has been used:
 - IDE             | Visula Studio 2019

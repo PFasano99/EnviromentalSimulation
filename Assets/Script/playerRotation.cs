@@ -36,7 +36,7 @@ public class playerRotation : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
-        gunHold.Rotate(Vector3.up * mouseX);
+        //gunHold.Rotate(Vector3.up * mouseX);
         gun.Rotate(Vector3.up * mouseX);
     }
 }

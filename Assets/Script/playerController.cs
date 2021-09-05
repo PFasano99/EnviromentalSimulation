@@ -28,6 +28,7 @@ public class playerController : MonoBehaviour
     private itemsMenager item;
     private gunManager gunMenager;
     private ammoMenager ammoMenager;
+    private gadJet gadJet1;
 
     private bulletQuantity bulletQuantity = new bulletQuantity();
    
@@ -68,15 +69,16 @@ public class playerController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
-            gunHold.transform.localPosition = new Vector3(0.061f, -0.09f, 0.9f);
+            gunHold.transform.localPosition = new Vector3(0.3f, -0.3f, 0.7f);
+            item.transform.localPosition = new Vector3(0f,0f,0f);
             if (isRightHandFull)
                 if (item.GetComponent<gunManager>())
                 {
-                    item.transform.position = new Vector3(gunHold.position.x + item.GetComponent<gunManager>().gunPositionXOffset, gunHold.position.y + item.GetComponent<gunManager>().gunPositionYOffset, gunHold.position.z + item.GetComponent<gunManager>().gunPositionZOffset);
+                   // item.transform.position = new Vector3(gunHold.position.x + item.GetComponent<gunManager>().gunPositionXOffset, gunHold.position.y + item.GetComponent<gunManager>().gunPositionYOffset, gunHold.position.z + item.GetComponent<gunManager>().gunPositionZOffset);
                     Camera.main.fieldOfView = 60;
                     isAiming = false;
                 }
-                else item.transform.position = gunHold.position;
+                //else item.transform.position = gunHold.position;
         }
 
 
@@ -86,8 +88,7 @@ public class playerController : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.F))
-        {
-            if(!isRightHandFull)
+        {          
             pickUp();
         }
 
@@ -125,23 +126,46 @@ public class playerController : MonoBehaviour
                         bulletQuantity.setGlockAmmo(bulletQuantity.getGlockAmmo() + ammoMenager.quantity);
                         Destroy(ammoMenager.gameObject);
                     }
-                    else
+                    else if (hit.collider.gameObject.CompareTag("gun") && !isRightHandFull)
                     {
-                        item = hold.GetComponent<itemsMenager>();
+                        item = hold.GetComponent<itemsMenager>();                        
+                        item.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                        item.transform.parent = gunHold.gameObject.transform;
+                        item.transform.localPosition = new Vector3(0f, 0f, 0f);
+                        item.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+
 
                         isRightHandFull = true;
                         if (hold.GetComponent<gunManager>())
-                            item.transform.position = new Vector3 (gunHold.position.x + hold.GetComponent<gunManager>().gunPositionXOffset, gunHold.position.y + hold.GetComponent<gunManager>().gunPositionYOffset,  gunHold.position.z + hold.GetComponent<gunManager>().gunPositionZOffset);
-                        item.transform.parent = gameObject.transform;
-                        if(hold.GetComponent<gunManager>())
-                            item.transform.localEulerAngles = new Vector3(hold.GetComponent<gunManager>().gunRotationXOffset, hold.GetComponent<gunManager>().gunRotationYOffset, 0f);
-                       
+                            item.transform.localPosition = new Vector3 (0f +  hold.GetComponent<gunManager>().gunPositionXOffset, 0f + hold.GetComponent<gunManager>().gunPositionYOffset, 0f + hold.GetComponent<gunManager>().gunPositionZOffset);
+
+                         if (hold.GetComponent<gunManager>())
+                         {
+                          item.transform.localEulerAngles = new Vector3(hold.GetComponent<gunManager>().gunRotationXOffset, hold.GetComponent<gunManager>().gunRotationYOffset, 0f);
+                            //item.transform.rotation = Quaternion.Euler(item.transform.rotation.x + hold.GetComponent<gunManager>().gunRotationXOffset, hold.GetComponent<gunManager>().gunRotationYOffset, 0f);
+                         }
+
                         if (hit.collider.gameObject.CompareTag("gun") )
                         {
                             gunMenager = item.GetComponent<gunManager>();
                             gunMenager.isHold = true;
                         }
 
+                    }
+                    else if (hit.collider.gameObject.CompareTag("Gadjet"))
+                    {                       
+                        if (item.GetComponent<gunManager>())
+                        {
+                            gadJet1 = hit.collider.gameObject.GetComponent<gadJet>();
+                            
+                            if(gadJet1.gadjetType.ToString() == "flashLight")
+                            gadJet1.transform.parent = item.gameObject.GetComponent<gunManager>().gadJetBarrel.transform;
+                            
+                            gadJet1.transform.localPosition = new Vector3(0f, 0f, 0f);
+                            gadJet1.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                            gadJet1.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+                            Debug.Log("here");
+                        }
                     }
 
                 }
@@ -154,20 +178,27 @@ public class playerController : MonoBehaviour
     private void dropItem()
     {
         if(item.gameObject != null)
-        {
-            item.transform.parent = null;
+        {           
             isRightHandFull = false;
             item.GetComponent<gunManager>().isHold = false;
+            item.transform.localPosition = new Vector3(0f, 0f, 0f);         
+            item.transform.parent = null;
+            item.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            item.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            item = null;
         }
     }
     private void aim()
     {
-        gunHold.transform.localPosition = new Vector3(0f, -0.08f, 0.8f);
-        if(isRightHandFull)
+        
+        if (isRightHandFull)
             if (item.GetComponent<gunManager>())
             {
-                item.transform.position = new Vector3(gunHold.position.x, gunHold.position.y + item.GetComponent<gunManager>().gunAimPositionYOffset, gunHold.position.z);
-                if(!isAiming)
+
+                gunHold.transform.localPosition = new Vector3(0f, -0.3f, 0.7f);
+                item.transform.localPosition = new Vector3(item.GetComponent<gunManager>().gunAimPositionXOffset, item.GetComponent<gunManager>().gunAimPositionYOffset, item.GetComponent<gunManager>().gunAimPositionZOffset);
+                
+                if (!isAiming)
                 Camera.main.fieldOfView += item.GetComponent<gunManager>().zoomOnAim;
                 isAiming = true;
             }
