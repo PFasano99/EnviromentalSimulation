@@ -5,44 +5,43 @@ using UnityEngine.UIElements;
 
 public class gunManager : MonoBehaviour
 {
-    public Transform nozle, gadjet1, gadjet2, gadjet3, gadjet4, bulletShell, bullet;
-    public GameObject nozleGO, gadjet1GO, gadjet2GO, gadjet3GO, gadjet4GO, bulletShellGO, bulletGO;
+    public Transform bulletShell, bullet, magazine;
+    public GameObject bulletShellGO, bulletGO, magazineGO;
 
     public Transform setRotation;
 
-    public bool hasNozle = false;
-    public bool hasGadjet1 = false;
-    public bool hasGadjet2 = false;
-    public bool hasGadjet3 = false;
-    public bool hasGadjet4 = false;
 
     [Header("is the player holding the gun")]
     public bool isHold;
     [Header("is the gun automatic")]
     public bool isAutomatic;
-    [Header("is the gun firing ")]
-    public bool isFiring = false;
+    [Header("is the gun reloading ")]
+    public bool isReloading = false;
 
+    [Header("the audio for firing")]
     public AudioClip bulletAudio;
     public AudioSource bulletShotAudio;
     public float volume = 1f;
 
+    [Header("Magazine variable and reload")]
     public int magazineSpace;
     public int ammoInMagazine;
+    public float reloadTime;
 
-    public Coroutine reloadCoroutine = null;
+    public ParticleSystem muzzleFlash;
+    public GameObject impactEffect;
 
     public float rangeFall;
     public float bulletSpeed;
     public Transform lastBulletPosition;
     public float rangeOffset;
-    public int contromisura;
 
-
-
+    [Space]
     public float fireRate;
-    public Coroutine fireRateCoroutine = null;
+    private float nextTimeToFire = 0f;
 
+    private int contromisura;
+    private Coroutine reloadCoroutine = null;
     public enum ResourceTypes { handgun, shotgun, rifle};
     public ResourceTypes resourceTypes;
 
@@ -62,7 +61,7 @@ public class gunManager : MonoBehaviour
     [Space]
     public float zoomOnAim = 0f;
 
-    public float reloadTime;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -73,37 +72,23 @@ public class gunManager : MonoBehaviour
     void Update()
     {
         if(isHold)
-        {
-            
-            if(Input.GetKeyDown(KeyCode.Mouse0) && ammoInMagazine > 0)
+        {            
+            if(Input.GetKeyDown(KeyCode.Mouse0) && !isReloading)
             {                
                 fire();                
             }
-            if (Input.GetKey(KeyCode.Mouse0) && ammoInMagazine > 0 && !isFiring)
-            { 
-                if (!isAutomatic)
-                    fire();
-               // else automaticFire();
-            }
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKey(KeyCode.Mouse0) && isAutomatic && Time.time >= nextTimeToFire && !isReloading)
             {
-                reloadCoroutine = StartCoroutine( productionTimeTick(reloadTime));               
+                nextTimeToFire = Time.time + 1f / fireRate;
+                fire();              
             }
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.R) && !isReloading)
             {
-                isFiring = false;
-                if (fireRateCoroutine != null)
-                    StopCoroutine(fireRateCoroutine);
+                if (ammoInMagazine != magazineSpace)
+                    reloadCoroutine = StartCoroutine( productionTimeTick(reloadTime));               
             }
         }
-
-
-        if(hasGadjet1)
-        {
-           // useGadjet(gadjet1GO, gadjet1);
-        }
-
-       
+    
     }
 
     /*
@@ -113,54 +98,66 @@ public class gunManager : MonoBehaviour
      */
     public void fire()
     {
-        bulletShotAudio.PlayOneShot(bulletAudio, volume);
-        ammoInMagazine -= 1;
-
-        lastBulletPosition.position = new Vector3(0,0,0);
-        
-
-        GameObject actualShell = (GameObject)Instantiate(bulletShellGO, bulletShell.position, bulletShell.rotation);
-        actualShell.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * -10 * Time.deltaTime, ForceMode.Impulse);
-        actualShell.gameObject.GetComponent<Rigidbody>().velocity = (transform.up * 2);
-
-        RaycastHit hit;
-       
-        if (Physics.Raycast(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward), out hit, rangeFall))
-        {                                         
-            GameObject actualBullet = (GameObject)Instantiate(bulletGO, hit.point, bullet.rotation);
-            actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
-
-            if(hit.rigidbody != null)
-            {
-                hit.rigidbody.AddForce(-hit.normal * bulletSpeed * 10);
-            }          
-
-            Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.green, 1f, false);
+        if (ammoInMagazine < 1)
+        {
+            reloadCoroutine = StartCoroutine(productionTimeTick(reloadTime));
         }
         else
         {
-            Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.blue, 10f, false);       
-                             
-            lastBulletPosition.position = bullet.transform.position + bullet.transform.TransformDirection(Vector3.forward) * rangeFall;
+            bulletShotAudio.PlayOneShot(bulletAudio, volume);
+            ammoInMagazine -= 1;
 
-            GameObject actualBullet = (GameObject)Instantiate(bulletGO, lastBulletPosition.position, bullet.rotation);
-            actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
+            muzzleFlash.Play();
 
-            //lastBulletPosition.transform.rotation = Quaternion.Euler(gunRotationXOffset, gunRotationYOffset, gunRotationZOffset);
-            checkHitAtRange(lastBulletPosition);
+            lastBulletPosition.position = new Vector3(0, 0, 0);
+
+            /*
+             * the next three line are used to drop a bullet shell from the side of the gun
+             */
+            GameObject actualShell = (GameObject)Instantiate(bulletShellGO, bulletShell.position, bulletShell.rotation);
+            actualShell.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * -10 * Time.deltaTime, ForceMode.Impulse);
+            actualShell.gameObject.GetComponent<Rigidbody>().velocity = (transform.up * 2);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward), out hit, rangeFall))
+            {
+                GameObject actualBullet = (GameObject)Instantiate(bulletGO, hit.point, bullet.rotation);
+                actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
+
+                if (hit.rigidbody != null)
+                {
+                    hit.rigidbody.AddForce(-hit.normal * bulletSpeed * 10);
+                }
+
+                Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.green, 1f, false);
+
+                GameObject impactEffectGO = (GameObject) Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(impactEffectGO, 2f);
+            }
+            else
+            {
+                Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.blue, 10f, false);
+
+                lastBulletPosition.position = bullet.transform.position + bullet.transform.TransformDirection(Vector3.forward) * rangeFall;
+
+                GameObject actualBullet = (GameObject)Instantiate(bulletGO, lastBulletPosition.position, bullet.rotation);
+                actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
+
+                //lastBulletPosition.transform.rotation = Quaternion.Euler(gunRotationXOffset, gunRotationYOffset, gunRotationZOffset);
+                checkHitAtRange(lastBulletPosition);
+            }
         }
+       
 
-        if(ammoInMagazine <= 0)
-            reloadCoroutine = StartCoroutine(productionTimeTick(reloadTime));
+       
     }
 
     private void useGadjet(GameObject gadjet, Transform gadjetPosition)
     {
         gadjet.transform.position = gadjetPosition.position;
        // gadjet.transform.rotation = Quaternion.Euler(-90, -90, 180);
-        gadjet.transform.parent = gameObject.transform;
-        
-        
+        gadjet.transform.parent = gameObject.transform;    
     }
 
 
@@ -168,23 +165,20 @@ public class gunManager : MonoBehaviour
     {
         while (true)
         {
-           isFiring = false;
-           yield return new WaitForSeconds(second);
-           ammoInMagazine = magazineSpace; 
-           StopCoroutine(reloadCoroutine);
-        }
-    }
+            isReloading = true;
 
-    IEnumerator fireRateTimeTick(float second)
-    {
-        while (true)
-        {
-            isFiring = true;
-            if(ammoInMagazine > 0)
-                fire();  
-            else
-                reloadCoroutine = StartCoroutine(productionTimeTick(reloadTime));
-            yield return new WaitForSeconds(second);           
+            this.gameObject.transform.localRotation = Quaternion.Euler(this.gameObject.transform.localRotation.x, this.gameObject.transform.localRotation.y, this.gameObject.transform.localRotation.z - 30f);        
+            yield return new WaitForSeconds(second);
+            this.gameObject.transform.localRotation = Quaternion.Euler(this.gameObject.transform.localRotation.x, this.gameObject.transform.localRotation.y, 0);
+
+            ammoInMagazine = magazineSpace;
+            isReloading = false;
+          
+            GameObject magazzineToDrop = (GameObject)Instantiate(magazineGO, magazine.position, magazine.rotation);
+            magazzineToDrop.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * -10 * Time.deltaTime, ForceMode.Impulse);
+
+            StopCoroutine(reloadCoroutine);
+            yield return null;
         }
     }
 
@@ -194,8 +188,7 @@ public class gunManager : MonoBehaviour
      * 
      */
     private void checkHitAtRange(Transform positionCheck)
-    {
-        
+    {       
         RaycastHit hit;
         do
         {
@@ -204,6 +197,7 @@ public class gunManager : MonoBehaviour
             {
                 Debug.DrawRay(positionCheck.position, positionCheck.transform.TransformDirection(Vector3.forward) * rangeOffset, Color.magenta, 10f, false);
                 GameObject actualBullet = (GameObject)Instantiate(bulletGO, hit.point, bullet.rotation);
+
                 actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y , bullet.rotation.z);
                 if (hit.rigidbody != null)
                 {
@@ -213,21 +207,14 @@ public class gunManager : MonoBehaviour
                 contromisura = 500;
             }
             else
-            {
-                
+            {               
                 Debug.DrawRay(positionCheck.transform.position, positionCheck.transform.TransformDirection(Vector3.forward) * rangeOffset, Color.yellow, 10f, false);
-
             }
             contromisura++;
         } while (contromisura <= 500);
 
         lastBulletPosition.position = new Vector3(0, 0, 0);
-        contromisura = 0;
-             
+        contromisura = 0;            
     }
     
-    private void automaticFire()
-    {
-        fireRateCoroutine = StartCoroutine(fireRateTimeTick(fireRate));
-    }
 }
