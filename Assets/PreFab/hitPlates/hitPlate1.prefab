@@ -58,6 +58,8 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,6 +85,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &4539650678660202291
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,9 +112,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 1
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: b13d7728e35b7d24b8d73cc5eafbe339, type: 3}
 --- !u!82 &4616004374128929446
 AudioSource:
@@ -223,4 +226,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitClipAudio: {fileID: 8300000, guid: 26d5261ee79379c44b967e7b1c231600, type: 3}
   hitSourceAudio: {fileID: 4616004374128929446}
-  volume: 0.5
+  volume: 0.1

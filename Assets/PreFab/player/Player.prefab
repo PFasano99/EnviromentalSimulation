@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 7232250403940395529}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,11 +126,12 @@ MonoBehaviour:
   groundCheck: {fileID: 4761056995292399617}
   groundMask:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 512
   groundDistance: 0.4
   gunHold: {fileID: 4693212405204977660}
   gun: {fileID: 5574104673350385509}
   isRightHandFull: 0
+  isAiming: 0
 --- !u!114 &266988058605909927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4693212405204977663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.061, y: -0.1, z: 0.9}
+  m_LocalPosition: {x: 0.061, y: -0.236, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4693212404932549489}
@@ -330,7 +331,7 @@ GameObject:
   - component: {fileID: 4693212405505416105}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
