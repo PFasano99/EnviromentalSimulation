@@ -48,7 +48,11 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
+<<<<<<< HEAD
   controlID: 105
+=======
+  controlID: 28
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -95,8 +99,13 @@ MonoBehaviour:
     y: 0
     width: 250
     height: 593
+<<<<<<< HEAD
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+=======
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -431,21 +440,28 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/PreFab/guns
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 73
   m_LastFolders:
-  - Assets
+  - Assets/PreFab/guns
   m_LastFoldersGridSize: 73
   m_LastProjectPath: E:\videoGamesProjects\EnviromentSimulation
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 31}
     m_SelectedIDs: 70390000
     m_LastClickedID: 14704
     m_ExpandedIDs: 000000007039000076390000783900007c3900007e3900006e3a0000703a0000723a0000743a0000263b0000583b0000
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: ca390000
+    m_LastClickedID: 14794
+    m_ExpandedIDs: 0000000060390000b2390000b8390000
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -473,7 +489,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000070390000
+=======
+    m_ExpandedIDs: 0000000060390000
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -597,7 +617,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: e29dfeffeee5feff5615ffff0cfaffff10faffff22faffff6cfaffffd2faffffd4faffffeafaffff
+=======
+      m_ExpandedIDs: 2afbffff40fbffffba360000
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: impactEffect
@@ -657,9 +681,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -39.927692, y: -6.9355216, z: -5.377785}
     speed: 2
     m_Value: {x: -39.927692, y: -6.9355216, z: -5.377785}
+=======
+    m_Target: {x: -9.316237, y: 6.412552, z: -33.53231}
+    speed: 2
+    m_Value: {x: -9.316237, y: 6.412552, z: -33.53231}
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -706,6 +736,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: 0.15516819, y: -0.37221056, z: 0.06322413, w: 0.9131442}
     speed: 2
     m_Value: {x: 0.15494317, y: -0.37486446, z: 0.063675106, w: 0.9118195}
@@ -713,6 +744,15 @@ MonoBehaviour:
     m_Target: 23.438915
     speed: 2
     m_Value: 23.438915
+=======
+    m_Target: {x: -0.06618512, y: 0.05148456, z: -0.0033569888, w: -0.99659353}
+    speed: 2
+    m_Value: {x: -0.06617203, y: 0.052973006, z: -0.003455846, w: -0.9963951}
+  m_Size:
+    m_Target: 3.4331672
+    speed: 2
+    m_Value: 3.4331672
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -765,7 +805,7 @@ MonoBehaviour:
   m_SerializedViewNames: []
   m_SerializedViewValues: []
   m_PlayModeViewName: GameView
-  m_ShowGizmos: 0
+  m_ShowGizmos: 1
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
   m_TargetSize: {x: 1270, y: 551}
@@ -775,8 +815,13 @@ MonoBehaviour:
   m_MaximizeOnPlay: 0
   m_UseMipMap: 0
   m_VSyncEnabled: 0
+<<<<<<< HEAD
   m_Gizmos: 0
   m_Stats: 0
+=======
+  m_Gizmos: 1
+  m_Stats: 1
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0

@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e7363bd232508b40a20ae6887985c71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   bulletShell: {fileID: 3925402654528732544}
   bullet: {fileID: 3925402654487468261}
   magazine: {fileID: 3925402655793783792}
@@ -222,18 +223,51 @@ MonoBehaviour:
   isHold: 0
   isAutomatic: 1
   isReloading: 0
+=======
+  nozle: {fileID: 3925402654566403571}
+  gadjet1: {fileID: 3925402655793783792}
+  gadjet2: {fileID: 3925402654729496838}
+  gadjet3: {fileID: 0}
+  gadjet4: {fileID: 0}
+  bulletShell: {fileID: 3925402654528732544}
+  bullet: {fileID: 3925402654487468261}
+  nozleGO: {fileID: 0}
+  gadjet1GO: {fileID: 0}
+  gadjet2GO: {fileID: 0}
+  gadjet3GO: {fileID: 0}
+  gadjet4GO: {fileID: 0}
+  bulletShellGO: {fileID: 6295768707112036586, guid: f90c14ca2030aa64885ba2e84eab12be, type: 3}
+  bulletGO: {fileID: 5977426582765904981, guid: be9594db15a3c0d468ecdfc48c3398d0, type: 3}
+  setRotation: {fileID: 0}
+  hasNozle: 0
+  hasGadjet1: 0
+  hasGadjet2: 0
+  hasGadjet3: 0
+  hasGadjet4: 0
+  isHold: 0
+  isAutomatic: 1
+  isFiring: 0
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   bulletAudio: {fileID: 8300000, guid: b799d449d9ed31043bacad58fbbe4f2e, type: 3}
   bulletShotAudio: {fileID: 3925402655846267213}
   volume: 0.2
   magazineSpace: 30
   ammoInMagazine: 30
+<<<<<<< HEAD
   reloadTime: 5
   muzzleFlash: {fileID: 938269470}
+=======
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   rangeFall: 40
   bulletSpeed: 70
   lastBulletPosition: {fileID: 3925402655567795997}
   rangeOffset: 0.25
+<<<<<<< HEAD
   fireRate: 8
+=======
+  contromisura: 0
+  fireRate: 0.2
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   resourceTypes: 2
   gunRotationYOffset: 0
   gunRotationXOffset: 0
@@ -243,6 +277,10 @@ MonoBehaviour:
   gunPositionZOffset: -0.2
   gunAimPositionYOffset: -0.325
   zoomOnAim: -30
+<<<<<<< HEAD
+=======
+  reloadTime: 3
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
 --- !u!114 &3925402655846267223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,8 +379,12 @@ Transform:
   m_LocalRotation: {x: -0.00000001545431, y: -0.7071068, z: 0.00000001545431, w: 0.7071068}
   m_LocalPosition: {x: 0.0061, y: 0.318, z: 2.069}
   m_LocalScale: {x: 27.37882, y: 2.91255, z: 4.9245744}
+<<<<<<< HEAD
   m_Children:
   - {fileID: 938269472}
+=======
+  m_Children: []
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_Father: {fileID: 3925402654403583618}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -430,12 +472,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3925402655793783795}
   m_LocalRotation: {x: -0.00000001545431, y: -0.7071068, z: 0.00000001545431, w: 0.7071068}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: -0.135, z: 0.451}
+=======
+  m_LocalPosition: {x: 0, y: 0.565, z: 0.314}
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_LocalScale: {x: 27.37882, y: 2.91255, z: 4.9245744}
   m_Children: []
   m_Father: {fileID: 3925402654403583618}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &6118684971223285285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -503,3 +550,5 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6118684971011155259, guid: bcf3d41f45059f549849e859f0668df4, type: 3}
   m_PrefabInstance: {fileID: 6118684971223285285}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509

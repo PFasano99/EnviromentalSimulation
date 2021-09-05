@@ -11,9 +11,15 @@ GameObject:
   - component: {fileID: 8030186798402586561}
   - component: {fileID: 8088345524741475147}
   - component: {fileID: 8805262366930877977}
+<<<<<<< HEAD
   - component: {fileID: 757235207}
   - component: {fileID: 757235206}
   m_Layer: 0
+=======
+  - component: {fileID: 4284555368116153843}
+  - component: {fileID: 2342937875731789214}
+  m_Layer: 19
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_Name: Magazine 1
   m_TagString: Ammo
   m_Icon: {fileID: 0}
@@ -28,7 +34,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292564374603645942}
   m_LocalRotation: {x: -0.6822062, y: -0.0007560459, z: 0.0021251182, w: 0.73115635}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
+  m_LocalPosition: {x: -11.074905, y: 5.729245, z: -32.37964}
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -56,8 +66,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+<<<<<<< HEAD
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+=======
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,14 +96,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &757235207
 Rigidbody:
+=======
+--- !u!114 &4284555368116153843
+MonoBehaviour:
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292564374603645942}
+<<<<<<< HEAD
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -102,14 +121,31 @@ Rigidbody:
   m_CollisionDetection: 0
 --- !u!65 &757235206
 BoxCollider:
+=======
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bc0739d4466a242a64bd06ecdf3ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2342937875731789214
+MonoBehaviour:
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292564374603645942}
+<<<<<<< HEAD
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.019032486, y: 0.03769675, z: 0.068204634}
   m_Center: {x: 0.00040704384, y: 0.030810386, z: 0.0062160594}
+=======
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e38652c77dbd5447a30dce876596845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 543d534c99bd0b8ea07c6111339699c0b4b41509
