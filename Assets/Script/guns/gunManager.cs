@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class gunManager : MonoBehaviour
 {
     public Transform bulletShell, bullet, magazine;
-    public GameObject bulletShellGO, bulletGO, magazineGO, gadJetBarrel;
+    public GameObject bulletShellGO, bulletGO, magazineGO, gadJetBarrel, gadJetScope;
 
     public Transform setRotation;
 
@@ -42,7 +42,7 @@ public class gunManager : MonoBehaviour
 
     private int contromisura;
     private Coroutine reloadCoroutine = null;
-    public enum ResourceTypes { handgun, shotgun, rifle};
+    public enum ResourceTypes { handgun, shotgun, rifle, sniperRifle, machineGun};
     public ResourceTypes resourceTypes;
 
     [Space]
@@ -61,6 +61,11 @@ public class gunManager : MonoBehaviour
     public float gunAimPositionXOffset = 0f;
     public float gunAimPositionZOffset = 0f;
     [Space]
+    public bool hasScope = false;
+    public float gunScopeAimPositionYOffset = 0f;
+    public float gunScopeAimPositionXOffset = 0f;
+    public float gunScopeAimPositionZOffset = 0f;
+    [Space]
     public float zoomOnAim = 0f;
 
     
@@ -75,8 +80,9 @@ public class gunManager : MonoBehaviour
     {
         if(isHold)
         {            
-            if(Input.GetKeyDown(KeyCode.Mouse0) && !isReloading)
-            {                
+            if(Input.GetKeyDown(KeyCode.Mouse0) && !isReloading && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1f / fireRate;
                 fire();                
             }
             if (Input.GetKey(KeyCode.Mouse0) && isAutomatic && Time.time >= nextTimeToFire && !isReloading)
@@ -120,9 +126,54 @@ public class gunManager : MonoBehaviour
             actualShell.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * -10 * Time.deltaTime, ForceMode.Impulse);
             actualShell.gameObject.GetComponent<Rigidbody>().velocity = (transform.up * 2);
 
+            if (resourceTypes != ResourceTypes.shotgun)
+                normalFire();
+            else
+                shotgunFire();
+
+        }
+              
+    }
+
+    private void normalFire()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward), out hit, rangeFall))
+        {
+            GameObject actualBullet = (GameObject)Instantiate(bulletGO, hit.point, bullet.rotation);
+            actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
+
+            if (hit.rigidbody != null)
+            {
+                hit.rigidbody.AddForce(-hit.normal * bulletSpeed * 10);
+            }
+
+            Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.green, 1f, false);
+
+            GameObject impactEffectGO = (GameObject)Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(impactEffectGO, 2f);
+        }
+        else
+        {
+            Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.blue, 10f, false);
+
+            lastBulletPosition.position = bullet.transform.position + bullet.transform.TransformDirection(Vector3.forward) * rangeFall;
+
+            GameObject actualBullet = (GameObject)Instantiate(bulletGO, lastBulletPosition.position, bullet.rotation);
+            actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
+
+            checkHitAtRange(lastBulletPosition);
+        }
+    }
+    private void shotgunFire()
+    {
+        for (int pallets = 0; pallets < 7; pallets++)
+        {
+            Vector3 offsetBullet = new Vector3(Random.Range(-.2f,.2f), Random.Range(-.3f, .3f) + 0f) ;
             RaycastHit hit;
 
-            if (Physics.Raycast(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward), out hit, rangeFall))
+            if (Physics.Raycast(bullet.transform.position + offsetBullet, bullet.transform.TransformDirection(Vector3.forward), out hit, rangeFall))
             {
                 GameObject actualBullet = (GameObject)Instantiate(bulletGO, hit.point, bullet.rotation);
                 actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
@@ -132,36 +183,24 @@ public class gunManager : MonoBehaviour
                     hit.rigidbody.AddForce(-hit.normal * bulletSpeed * 10);
                 }
 
-                Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.green, 1f, false);
+                Debug.DrawRay(bullet.transform.position + offsetBullet, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.green, 1f, false);
 
-                GameObject impactEffectGO = (GameObject) Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+                GameObject impactEffectGO = (GameObject)Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impactEffectGO, 2f);
             }
             else
             {
-                Debug.DrawRay(bullet.transform.position, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.blue, 10f, false);
+                Debug.DrawRay(bullet.transform.position + offsetBullet, bullet.transform.TransformDirection(Vector3.forward) * rangeFall, Color.blue, 10f, false);
 
                 lastBulletPosition.position = bullet.transform.position + bullet.transform.TransformDirection(Vector3.forward) * rangeFall;
 
                 GameObject actualBullet = (GameObject)Instantiate(bulletGO, lastBulletPosition.position, bullet.rotation);
                 actualBullet.transform.rotation = Quaternion.Euler(bullet.rotation.x, setRotation.transform.eulerAngles.y, bullet.rotation.z);
 
-                //lastBulletPosition.transform.rotation = Quaternion.Euler(gunRotationXOffset, gunRotationYOffset, gunRotationZOffset);
                 checkHitAtRange(lastBulletPosition);
             }
         }
-       
-
-       
     }
-
-    private void useGadjet(GameObject gadjet, Transform gadjetPosition)
-    {
-        gadjet.transform.position = gadjetPosition.position;
-       // gadjet.transform.rotation = Quaternion.Euler(-90, -90, 180);
-        gadjet.transform.parent = gameObject.transform;    
-    }
-
 
     IEnumerator productionTimeTick(float second)
     {

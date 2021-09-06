@@ -5317,6 +5317,7 @@ MonoBehaviour:
   bulletGO: {fileID: 5977426582765904981, guid: be9594db15a3c0d468ecdfc48c3398d0, type: 3}
   magazineGO: {fileID: 2219712570566863402, guid: 3cf105e16eb78d545a5995a7bd8510bd, type: 3}
   gadJetBarrel: {fileID: 8393850934627499001}
+  gadJetScope: {fileID: 0}
   setRotation: {fileID: 0}
   isHold: 0
   isAutomatic: 1
@@ -5344,4 +5345,8 @@ MonoBehaviour:
   gunAimPositionYOffset: -0.1
   gunAimPositionXOffset: 0
   gunAimPositionZOffset: 0
+  hasScope: 0
+  gunScopeAimPositionYOffset: 0
+  gunScopeAimPositionXOffset: 0
+  gunScopeAimPositionZOffset: 0
   zoomOnAim: -40

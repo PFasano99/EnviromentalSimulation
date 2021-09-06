@@ -5194,6 +5194,8 @@ MonoBehaviour:
   bulletShellGO: {fileID: 6295768707112036586, guid: f90c14ca2030aa64885ba2e84eab12be, type: 3}
   bulletGO: {fileID: 5977426582765904981, guid: be9594db15a3c0d468ecdfc48c3398d0, type: 3}
   magazineGO: {fileID: 1113620589733019218, guid: acb2433f7b659484aa82f9eee3e6d8c1, type: 3}
+  gadJetBarrel: {fileID: 0}
+  gadJetScope: {fileID: 0}
   setRotation: {fileID: 0}
   isHold: 0
   isAutomatic: 0
@@ -5210,7 +5212,7 @@ MonoBehaviour:
   bulletSpeed: 45
   lastBulletPosition: {fileID: 7164272504734826790}
   rangeOffset: 0.35
-  fireRate: 0.5
+  fireRate: 5
   resourceTypes: 0
   gunRotationYOffset: 0
   gunRotationXOffset: -4
@@ -5221,6 +5223,10 @@ MonoBehaviour:
   gunAimPositionYOffset: 0.2
   gunAimPositionXOffset: 0
   gunAimPositionZOffset: 0
+  hasScope: 0
+  gunScopeAimPositionYOffset: 0
+  gunScopeAimPositionXOffset: 0
+  gunScopeAimPositionZOffset: 0
   zoomOnAim: -15
 --- !u!1 &7164272506338265838
 GameObject:
