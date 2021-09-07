@@ -186,6 +186,8 @@ public class playerController : MonoBehaviour
             g.transform.parent = item.gameObject.GetComponent<gunManager>().gadJetScope.transform;
             item.gameObject.GetComponent<gunManager>().hasScope = true;
         }
+
+        g.GetComponent<gadJet>().isHold = true;
         g.transform.localPosition = new Vector3(0f, 0f, 0f);
         g.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         g.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);

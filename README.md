@@ -13,6 +13,7 @@ The follwoig list rappresent the key mapping:
 - Space bar           | Jump
 - Shift               | Run
 - X                   | Drop item in hand  
+- Q                   | UseGadjet
 
 
 Features
@@ -25,6 +26,7 @@ Features list:
 - Dropping items
 - Basic fire and reload  
 - Pickup gadjets that attach to the weapons
+- Toggle on off gasjets
 
 *This list will be updated as soon as new features are committed.*
 
