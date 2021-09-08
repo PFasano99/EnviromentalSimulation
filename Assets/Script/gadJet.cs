@@ -8,7 +8,17 @@ public class gadJet : MonoBehaviour
     public GadjetType gadjetType;
 
     public bool isHold;
-   
+
+    public Transform scopeCenter = null;
+
+    private void Start()
+    {
+        if (GadjetType.scope == gadjetType || GadjetType.longRangeScope == gadjetType)
+        {
+            scopeCenter = gameObject.GetComponentInChildren<Transform>().GetChild(0).gameObject.transform;
+        }
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<gunManager>().isHold)

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &932074049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932074050}
+  m_Layer: 8
+  m_Name: scope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932074050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932074049}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.162, z: 0.184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7164272505595460068}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430495567186311171
 GameObject:
   m_ObjectHideFlags: 0
@@ -5003,6 +5033,7 @@ Transform:
   - {fileID: 7164272505553496202}
   - {fileID: 7164272504383503434}
   - {fileID: 7164272504734826790}
+  - {fileID: 932074050}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5194,18 +5225,21 @@ MonoBehaviour:
   bulletShellGO: {fileID: 6295768707112036586, guid: f90c14ca2030aa64885ba2e84eab12be, type: 3}
   bulletGO: {fileID: 5977426582765904981, guid: be9594db15a3c0d468ecdfc48c3398d0, type: 3}
   magazineGO: {fileID: 1113620589733019218, guid: acb2433f7b659484aa82f9eee3e6d8c1, type: 3}
-  gadJetBarrel: {fileID: 0}
-  gadJetScope: {fileID: 0}
+  gadJetBarrel: {fileID: 7164272506338265838}
+  gadJetScope: {fileID: 932074049}
   setRotation: {fileID: 0}
   isHold: 0
   isAutomatic: 0
   isReloading: 0
+  isSemi: 0
+  canBeSemi: 0
   bulletAudio: {fileID: 8300000, guid: 758fd29d9a931eb4ba00d37d6dc95f01, type: 3}
   bulletShotAudio: {fileID: 7164272505407121825}
   volume: 0.5
   magazineSpace: 12
   ammoInMagazine: 12
   reloadTime: 3
+  hasMagazine: 1
   muzzleFlash: {fileID: 3835123003468442505}
   impactEffect: {fileID: 786808289122028995, guid: 0a38b40b75cbb844fa789926e8505c95, type: 3}
   rangeFall: 20
@@ -5224,10 +5258,11 @@ MonoBehaviour:
   gunAimPositionXOffset: 0
   gunAimPositionZOffset: 0
   hasScope: 0
-  gunScopeAimPositionYOffset: 0
+  gunScopeAimPositionYOffset: 0.1
   gunScopeAimPositionXOffset: 0
   gunScopeAimPositionZOffset: 0
   zoomOnAim: -15
+  fireingStartPoint: {fileID: 0}
 --- !u!1 &7164272506338265838
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,7 +5287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7164272506338265838}
   m_LocalRotation: {x: 0.000000026692542, y: -0.7071068, z: -0.000000026692542, w: 0.7071068}
-  m_LocalPosition: {x: -0.027499199, y: 0.35016656, z: -0.12828824}
+  m_LocalPosition: {x: -0.027499199, y: 0.019, z: 0.318}
   m_LocalScale: {x: 27.378813, y: 2.9125495, z: 4.924568}
   m_Children: []
   m_Father: {fileID: 7164272505595460068}

@@ -171,12 +171,15 @@ MonoBehaviour:
   isHold: 0
   isAutomatic: 0
   isReloading: 0
+  isSemi: 0
+  canBeSemi: 0
   bulletAudio: {fileID: 8300000, guid: 02a2333fd022ca4478ee90c2d916b4a9, type: 3}
   bulletShotAudio: {fileID: 3400191427492005603}
   volume: 1
   magazineSpace: 7
   ammoInMagazine: 7
-  reloadTime: 5
+  reloadTime: 1
+  hasMagazine: 0
   muzzleFlash: {fileID: 3400191428047280567}
   impactEffect: {fileID: 786808289122028995, guid: 0a38b40b75cbb844fa789926e8505c95, type: 3}
   rangeFall: 100
@@ -188,7 +191,7 @@ MonoBehaviour:
   gunRotationYOffset: 0
   gunRotationXOffset: 1.8
   gunRotationZOffset: 0
-  gunPositionYOffset: 0.2
+  gunPositionYOffset: -0.1
   gunPositionXOffset: 0
   gunPositionZOffset: 0
   gunAimPositionYOffset: 0.1
@@ -199,6 +202,7 @@ MonoBehaviour:
   gunScopeAimPositionXOffset: 0
   gunScopeAimPositionZOffset: 0
   zoomOnAim: -40
+  fireingStartPoint: {fileID: 0}
 --- !u!82 &3400191427492005603
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5343,13 +5347,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3400191428553054770}
-  m_LocalRotation: {x: -0.008726449, y: 1.1004924e-16, z: -1.119869e-16, w: 0.999962}
+  m_LocalRotation: {x: 0.008726558, y: 0, z: 0, w: 0.999962}
   m_LocalPosition: {x: -0.019, y: 0.221, z: 0.417}
   m_LocalScale: {x: 4.924575, y: 2.9125502, z: 27.378824}
   m_Children: []
   m_Father: {fileID: 3400191427491846908}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 1, y: 0, z: 0}
 --- !u!1 &3400191428610419406
 GameObject:
   m_ObjectHideFlags: 0

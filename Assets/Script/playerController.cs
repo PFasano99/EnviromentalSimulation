@@ -177,6 +177,9 @@ public class playerController : MonoBehaviour
 
     }
 
+    /*
+     * this method "attachItem" is used to place a gadjet on the right spot on a weapon
+     */
     private void attachItem(gadJet g)
     {
         if (g.gadjetType.ToString() == "flashLight")
@@ -205,6 +208,12 @@ public class playerController : MonoBehaviour
             item.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
             item = null;
         }
+
+        if (gadJet1 != null)
+            gadJet1 = null;
+
+        if (gadJet2 != null)
+            gadJet2 = null;
     }
     private void aim()
     {

@@ -5245,12 +5245,15 @@ MonoBehaviour:
   isHold: 0
   isAutomatic: 0
   isReloading: 0
+  isSemi: 0
+  canBeSemi: 0
   bulletAudio: {fileID: 8300000, guid: 63f24c80c66d3a34bb14a2b2b77f5966, type: 3}
   bulletShotAudio: {fileID: 5261932327666544409}
   volume: 1
   magazineSpace: 7
   ammoInMagazine: 7
-  reloadTime: 8
+  reloadTime: 1.1
+  hasMagazine: 0
   muzzleFlash: {fileID: 4190545048444662322}
   impactEffect: {fileID: 786808289122028995, guid: 0a38b40b75cbb844fa789926e8505c95, type: 3}
   rangeFall: 30
@@ -5269,10 +5272,11 @@ MonoBehaviour:
   gunAimPositionXOffset: 0
   gunAimPositionZOffset: 0
   hasScope: 0
-  gunScopeAimPositionYOffset: -0.1
+  gunScopeAimPositionYOffset: -0.15
   gunScopeAimPositionXOffset: 0
   gunScopeAimPositionZOffset: 0
   zoomOnAim: -15
+  fireingStartPoint: {fileID: 0}
 --- !u!82 &5261932327666544409
 AudioSource:
   m_ObjectHideFlags: 0

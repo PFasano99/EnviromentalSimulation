@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &645099060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 645099061}
+  m_Layer: 8
+  m_Name: scope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &645099061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645099060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.52, z: 0.318}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8420397233115104256}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362625304990550292
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,6 +5155,7 @@ Transform:
   - {fileID: 8393850934927792541}
   - {fileID: 8393850933948108125}
   - {fileID: 8393850934102323249}
+  - {fileID: 645099061}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -1.5, y: 0, z: 0}
@@ -5317,17 +5348,20 @@ MonoBehaviour:
   bulletGO: {fileID: 5977426582765904981, guid: be9594db15a3c0d468ecdfc48c3398d0, type: 3}
   magazineGO: {fileID: 2219712570566863402, guid: 3cf105e16eb78d545a5995a7bd8510bd, type: 3}
   gadJetBarrel: {fileID: 8393850934627499001}
-  gadJetScope: {fileID: 0}
+  gadJetScope: {fileID: 645099060}
   setRotation: {fileID: 0}
   isHold: 0
   isAutomatic: 1
   isReloading: 0
+  isSemi: 0
+  canBeSemi: 1
   bulletAudio: {fileID: 8300000, guid: b799d449d9ed31043bacad58fbbe4f2e, type: 3}
   bulletShotAudio: {fileID: 8420397233115338786}
   volume: 1
   magazineSpace: 35
   ammoInMagazine: 35
   reloadTime: 5
+  hasMagazine: 1
   muzzleFlash: {fileID: 2461623037712456350}
   impactEffect: {fileID: 786808289122028995, guid: 0a38b40b75cbb844fa789926e8505c95, type: 3}
   rangeFall: 50
@@ -5346,7 +5380,11 @@ MonoBehaviour:
   gunAimPositionXOffset: 0
   gunAimPositionZOffset: 0
   hasScope: 0
-  gunScopeAimPositionYOffset: 0
+  gunScopeAimPositionYOffset: -0.2
   gunScopeAimPositionXOffset: 0
   gunScopeAimPositionZOffset: 0
-  zoomOnAim: -40
+  zoomOnAim: -35
+  fireingStartPoint: {fileID: 0}
+  bulletsFiredNonstop: 0
+  recoilAfterBullets: 5
+  recoilMultiplier: 0.01

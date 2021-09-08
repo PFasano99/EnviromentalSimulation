@@ -14,6 +14,7 @@ The follwoig list rappresent the key mapping:
 - Shift               | Run
 - X                   | Drop item in hand  
 - Q                   | UseGadjet
+- V                   | Switch fire mode (Auto & SemiAuto)
 
 
 Features
@@ -25,8 +26,10 @@ Features list:
 - Picking up items  
 - Dropping items
 - Basic fire and reload  
+- recoil bullets spread
 - Pickup gadjets that attach to the weapons
 - Toggle on off gasjets
+- Toggle fire mode
 
 *This list will be updated as soon as new features are committed.*
 
