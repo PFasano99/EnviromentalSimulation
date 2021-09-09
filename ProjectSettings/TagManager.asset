@@ -12,6 +12,7 @@ TagManager:
   - ground
   - Gadjet
   - light
+  - Granade
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ The follwoig list rappresent the key mapping:
 - X                   | Drop item in hand  
 - Q                   | UseGadjet
 - V                   | Switch fire mode (Auto & SemiAuto)
+- G                   | Granades
 
 
 Features
@@ -30,6 +31,7 @@ Features list:
 - Pickup gadjets that attach to the weapons
 - Toggle on off gasjets
 - Toggle fire mode
+- Granades throw
 
 *This list will be updated as soon as new features are committed.*
 

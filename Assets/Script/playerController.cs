@@ -21,6 +21,7 @@ public class playerController : MonoBehaviour
 
     public Transform gunHold;
     public Transform gun;
+    public Transform granadeHold;
 
     public bool isRightHandFull = false;
     public bool isAiming = false;
@@ -31,6 +32,11 @@ public class playerController : MonoBehaviour
     private gadJet gadJet1 = null, gadJet2 = null;
 
     private bulletQuantity bulletQuantity = new bulletQuantity();
+    private granadeManager granadeManager = null;
+    public GameObject[] granadeArray;
+    [Space]
+    public int numberOfGranade;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -63,15 +69,16 @@ public class playerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            if(item != null)
-            aim();
+            if (item != null)
+                aim();
         }
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             gunHold.transform.localPosition = new Vector3(0.3f, -0.3f, 0.7f);
 
-            if (item != null) {
+            if (item != null)
+            {
                 item.transform.localPosition = new Vector3(0f, 0f, 0f);
 
             }
@@ -96,9 +103,9 @@ public class playerController : MonoBehaviour
             pickUp();
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            // pickGunGadjet();
+            throwGranade();
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -169,9 +176,57 @@ public class playerController : MonoBehaviour
                         attachItem(gadJet2);
                     }
                 }
+                else if (hit.collider.gameObject.CompareTag("Granade"))
+                {
+                    Debug.Log("hit in granada tag " + hit.collider.gameObject);
+                    if (granadeManager != null)
+                    {
+                        if (granadeManager.granadeType == hit.collider.gameObject.GetComponent<granadeManager>().granadeType && granadeManager.maxForType > numberOfGranade)
+                        {
+                            if (!hit.collider.gameObject.GetComponent<granadeManager>().inPlayerPossesion)
+                            {
+                                granadeManager = hit.collider.gameObject.GetComponent<granadeManager>();
+                                granadeArray[numberOfGranade] = hit.collider.gameObject;
+                                numberOfGranade++;
+                                setGranadePositionOnBelt();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (numberOfGranade > 0)
+                        {
+                            for (int i = 0; i < numberOfGranade; i++)
+                            {
+                                granadeArray[i].transform.parent = null;
+                                granadeArray[i].transform.position = hit.collider.gameObject.transform.position;
+                            }
+                        }
+
+
+
+                        granadeManager = hit.collider.gameObject.GetComponent<granadeManager>();
+                        granadeArray[numberOfGranade] = hit.collider.gameObject;
+                        setGranadePositionOnBelt();
+
+                        numberOfGranade = 1;
+
+                    }
+                }
 
             }
 
+        }
+
+        void setGranadePositionOnBelt()
+        {
+            granadeManager.inPlayerPossesion = true;
+            granadeManager.rigidbody.isKinematic = true;
+
+            granadeManager.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+            granadeManager.transform.parent = granadeHold.gameObject.transform;
+            granadeManager.transform.localPosition = new Vector3(0f, 0f, 0f);
+            granadeManager.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         }
 
 
@@ -237,6 +292,24 @@ public class playerController : MonoBehaviour
                 isAiming = true;
             }
             else item.transform.position = gunHold.position;
-    }   
+    }
 
+    private void throwGranade()
+    {
+
+        if (numberOfGranade > 0)
+        {
+            granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().transform.parent = null;
+            granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().inPlayerPossesion = false;
+            granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().rigidbody.isKinematic = false;
+            granadeArray[numberOfGranade - 1].transform.position = gunHold.position;
+            granadeArray[numberOfGranade - 1].transform.rotation = gameObject.transform.rotation;
+            granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().rigidbody.AddForce((granadeArray[numberOfGranade - 1].transform.up + granadeArray[numberOfGranade - 1].transform.forward ) * granadeManager.thrust, ForceMode.Impulse);
+            granadeArray[numberOfGranade - 1] = null;
+            numberOfGranade--;
+        }
+        if (numberOfGranade <= 0)
+            granadeManager = null;
+
+    }
 }

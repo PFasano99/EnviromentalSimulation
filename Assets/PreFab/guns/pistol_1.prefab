@@ -5229,8 +5229,8 @@ MonoBehaviour:
   gadJetScope: {fileID: 932074049}
   setRotation: {fileID: 0}
   isHold: 0
-  isAutomatic: 0
   isReloading: 0
+  isAutomatic: 0
   isSemi: 0
   canBeSemi: 0
   bulletAudio: {fileID: 8300000, guid: 758fd29d9a931eb4ba00d37d6dc95f01, type: 3}
@@ -5246,6 +5246,7 @@ MonoBehaviour:
   bulletSpeed: 45
   lastBulletPosition: {fileID: 7164272504734826790}
   rangeOffset: 0.35
+  bulletDamage: 10
   fireRate: 5
   resourceTypes: 0
   gunRotationYOffset: 0
@@ -5262,7 +5263,9 @@ MonoBehaviour:
   gunScopeAimPositionXOffset: 0
   gunScopeAimPositionZOffset: 0
   zoomOnAim: -15
-  fireingStartPoint: {fileID: 0}
+  bulletsFiredNonstop: 0
+  recoilAfterBullets: 5
+  recoilMultiplier: 0.01
 --- !u!1 &7164272506338265838
 GameObject:
   m_ObjectHideFlags: 0
@@ -5286,9 +5289,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7164272506338265838}
-  m_LocalRotation: {x: 0.000000026692542, y: -0.7071068, z: -0.000000026692542, w: 0.7071068}
-  m_LocalPosition: {x: -0.027499199, y: 0.019, z: 0.318}
-  m_LocalScale: {x: 27.378813, y: 2.9125495, z: 4.924568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.024, z: 0.341}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7164272505595460068}
   m_RootOrder: 1
