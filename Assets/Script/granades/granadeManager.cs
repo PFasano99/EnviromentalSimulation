@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class granadeManager : MonoBehaviour
 {
@@ -13,17 +14,45 @@ public class granadeManager : MonoBehaviour
     public int maxForType = 2;
 
     public bool inPlayerPossesion = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public bool beenThrown = false;
+
+    public GameObject effectGO;
+    public float effectDuration, startOffset;
+    private Coroutine effectCoroutine = null;
+
+    public void playEffect()
+    {       
+        effectCoroutine = StartCoroutine(effectTimeTick(startOffset, effectDuration));
     }
 
-    // Update is called once per frame
-    void Update()
+    bool doOnce = false;
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            if (beenThrown && !doOnce)
+            {
+                doOnce = true;
+                playEffect();
+            }
+        }
     }
 
-    
+    IEnumerator effectTimeTick(float startAfter, float duration)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(startAfter);
+            GameObject toSpawn = (GameObject)Instantiate(effectGO, transform.position, transform.rotation);
+            toSpawn.transform.parent = transform.parent;
+            yield return new WaitForSeconds(duration);
+            toSpawn.GetComponent<VisualEffect>().Stop();
+            yield return new WaitForSeconds(60f);
+            StopCoroutine(effectCoroutine);
+            Destroy(toSpawn);
+            Destroy(this);
+            yield return null;
+        }
+    }
+
 }

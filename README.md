@@ -29,9 +29,9 @@ Features list:
 - Basic fire and reload  
 - recoil bullets spread
 - Pickup gadjets that attach to the weapons
-- Toggle on off gasjets
-- Toggle fire mode
-- Granades throw
+- Toggle on/off gasjets
+- Toggle Auto/SemiAuto fire mode 
+- Granades throwing
 
 *This list will be updated as soon as new features are committed.*
 

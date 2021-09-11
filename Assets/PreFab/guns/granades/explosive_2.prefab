@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4584558555290101254}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.177, y: 0.983, z: -22.681}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
@@ -102,6 +102,10 @@ MonoBehaviour:
   thrust: 10
   maxForType: 2
   inPlayerPossesion: 0
+  beenThrown: 0
+  effectGO: {fileID: 8966077517806913828, guid: 0d4639092ce18de4e8929ae472392e74, type: 3}
+  effectDuration: 10
+  startOffset: 1
 --- !u!114 &4584558555290101256
 MonoBehaviour:
   m_ObjectHideFlags: 0

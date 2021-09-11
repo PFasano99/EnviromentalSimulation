@@ -301,6 +301,7 @@ public class playerController : MonoBehaviour
         {
             granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().transform.parent = null;
             granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().inPlayerPossesion = false;
+            granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().beenThrown = true;
             granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().rigidbody.isKinematic = false;
             granadeArray[numberOfGranade - 1].transform.position = gunHold.position;
             granadeArray[numberOfGranade - 1].transform.rotation = gameObject.transform.rotation;
