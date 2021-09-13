@@ -1,6 +1,6 @@
 # EnviromentalSimulation
 
-This project is a testing for different snippets of C# code in Unity to simulate  FPS and platform games.
+This project is a testing for different snippets of C# code in Unity to simulate FPS and platform games.
 
 Key mapping
 =======
@@ -32,6 +32,9 @@ Features list:
 - Toggle on/off gasjets
 - Toggle Auto/SemiAuto fire mode 
 - Granades throwing
+- Smoke granades 
+- Added friend and foe targets
+- Added basic shooting range to try weapons
 
 *This list will be updated as soon as new features are committed.*
 
@@ -44,6 +47,6 @@ To develop this project the following has been used:
 - IDE             | Visual Studio Code
 - Game engine     | Unity version 2020.1.4f1
 - 3D Modelling    | Blender version 2.79   | 
-**not every model in this project have been made by me**
+**MOST OF THE MODELS IN THIS PROJECT HAVE NOT BEEN MADE BY ME**
 - Graphics editor | Krita version 4.4.8    | 
 **not every texture in this project have been made by me**

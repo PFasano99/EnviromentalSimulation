@@ -1,0 +1,16 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class chackCollisons : MonoBehaviour
+{
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collide with " + collision.gameObject.name);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("collide with " + collision.gameObject.name);
+
+    }
+}

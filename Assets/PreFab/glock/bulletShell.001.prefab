@@ -116,7 +116,7 @@ MonoBehaviour:
   damage: 0
   bulletSpeed: 50
   rigidbody: {fileID: 3266996941651883521}
-  decondBeforeDestroy: 20
+  decondBeforeDestroy: 0.5
   hasHit: 0
 --- !u!136 &8640379629917181621
 CapsuleCollider:
