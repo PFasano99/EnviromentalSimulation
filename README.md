@@ -16,6 +16,7 @@ The follwoig list rappresent the key mapping:
 - Q                   | UseGadjet
 - V                   | Switch fire mode (Auto & SemiAuto)
 - G                   | Granades
+- B                   | Use Hammer  
 
 
 Features
@@ -35,6 +36,7 @@ Features list:
 - Smoke granades 
 - Added friend and foe targets
 - Added basic shooting range to try weapons
+- Added basic barricades building system  
 
 *This list will be updated as soon as new features are committed.*
 
