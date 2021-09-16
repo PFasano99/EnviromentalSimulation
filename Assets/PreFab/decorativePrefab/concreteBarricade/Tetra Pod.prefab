@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4865012730466608938}
   - component: {fileID: 7028490507163118019}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tetra Pod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 431179623162927526}
   - component: {fileID: 7198761721988427303}
   - component: {fileID: 9175660499038286281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Line001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 8191687802531439957}
   - component: {fileID: 2919404460749556331}
   - component: {fileID: 7341847704864075306}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder03
   m_TagString: Untagged
   m_Icon: {fileID: 0}

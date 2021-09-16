@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3012090271553293825}
   - component: {fileID: 1020610043101903563}
   - component: {fileID: 8066898550258225167}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Barricada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524770966128253726}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -7.434731, y: 0, z: -33.114685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &3012090271553293825
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -93,5 +93,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1324568, y: 0.6386129, z: 1.241239}
-  m_Center: {x: -0.00043156743, y: 0.00047831231, z: 0.61774486}
+  m_Size: {x: 1.1324568, y: 0.6386129, z: 1.1672714}
+  m_Center: {x: -0.00043157738, y: 0.00047830743, z: 0.580761}

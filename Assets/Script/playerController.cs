@@ -20,15 +20,16 @@ public class playerController : MonoBehaviour
 
 
     public Transform gunHold;
-    public Transform gun;
+    public Transform gunAdditional;
     public Transform granadeHold;
 
     public bool isRightHandFull = false;
     public bool isAiming = false;
+    public bool hasHammer = false;
 
-    private itemsMenager item;
-    private gunManager gunMenager;
-    private ammoMenager ammoMenager;
+    private itemsMenager item = null;
+    private gunManager gunMenager = null;
+    private ammoMenager ammoMenager = null;
     private gadJet gadJet1 = null, gadJet2 = null;
 
     private bulletQuantity bulletQuantity = new bulletQuantity();
@@ -165,12 +166,12 @@ public class playerController : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.CompareTag("Gadjet"))
                 {
-                    if (item.GetComponent<gunManager>() && gadJet1 == null)
+                    if (item != null && item.GetComponent<gunManager>() && gadJet1 == null)
                     {
                         gadJet1 = hit.collider.gameObject.GetComponent<gadJet>();
                         attachItem(gadJet1);
                     }
-                    else if (item.GetComponent<gunManager>() && gadJet2 == null)
+                    else if (item != null && item.GetComponent<gunManager>() && gadJet2 == null)
                     {
                         gadJet2 = hit.collider.gameObject.GetComponent<gadJet>();
                         attachItem(gadJet2);
@@ -213,7 +214,12 @@ public class playerController : MonoBehaviour
 
                     }
                 }
-
+                else if (hit.collider.gameObject.CompareTag("hammer"))
+                {
+                    hasHammer = true;
+                    hit.collider.gameObject.transform.parent = gunAdditional.gameObject.transform;
+                    hit.collider.gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+                }
             }
 
         }
@@ -253,10 +259,13 @@ public class playerController : MonoBehaviour
 
     private void dropItem()
     {
-        if (item.gameObject != null)
+        if (item != null)
         {
             isRightHandFull = false;
+
+            if(GetComponent<gunManager>())
             item.GetComponent<gunManager>().isHold = false;
+
             item.transform.localPosition = new Vector3(0f, 0f, 0f);
             item.transform.parent = null;
             item.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
@@ -269,6 +278,8 @@ public class playerController : MonoBehaviour
 
         if (gadJet2 != null)
             gadJet2 = null;
+
+
     }
     private void aim()
     {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7663668122453442722}
   - component: {fileID: 1640073155925917196}
   - component: {fileID: 8165067027086248938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: concreteBarricade5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

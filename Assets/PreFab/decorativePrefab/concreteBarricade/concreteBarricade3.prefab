@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1782502644463422717}
   - component: {fileID: 776979356810351628}
   - component: {fileID: 5467857607924577004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: concreteBarricade3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,5 +93,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1138978, y: 1.0914978, z: 0.6150001}
-  m_Center: {x: 0.0000037550926, y: 0.5457489, z: 0}
+  m_Size: {x: 2.1138978, y: 1.0099655, z: 0.6150001}
+  m_Center: {x: 0.0000037352243, y: 0.50498277, z: 7.2513406e-14}

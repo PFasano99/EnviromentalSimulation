@@ -14,6 +14,7 @@ TagManager:
   - light
   - Granade
   - target
+  - hammer
   layers:
   - Default
   - TransparentFX

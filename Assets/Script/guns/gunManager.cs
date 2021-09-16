@@ -11,11 +11,11 @@ public class gunManager : MonoBehaviour
     public Transform setRotation;
 
 
-    [Header("is the player holding the gun")]
+    [Header("is the player holding the gunAdditional")]
     public bool isHold;
-    [Header("is the gun reloading ")]
+    [Header("is the gunAdditional reloading ")]
     public bool isReloading = false;
-    [Header("is the gun automatic")]
+    [Header("is the gunAdditional automatic")]
     public bool isAutomatic;    
     public bool isSemi = false;
     public bool canBeSemi = false;
@@ -51,17 +51,17 @@ public class gunManager : MonoBehaviour
     public ResourceTypes resourceTypes;
 
     [Space]
-    [Header("the offset the gun has when picked up on the XYZ Rotation")]
+    [Header("the offset the gunAdditional has when picked up on the XYZ Rotation")]
     public float gunRotationYOffset = 0f;
     public float gunRotationXOffset = 0f;
     public float gunRotationZOffset = 0f;
     [Space]
-    [Header("the offset the gun has when picked up on the XYZ Position")]
+    [Header("the offset the gunAdditional has when picked up on the XYZ Position")]
     public float gunPositionYOffset = 0f;
     public float gunPositionXOffset = 0f;
     public float gunPositionZOffset = 0f;
     [Space]
-    [Header("the offset the gun has when picked up and Aiming on the XYZ Rotation")]
+    [Header("the offset the gunAdditional has when picked up and Aiming on the XYZ Rotation")]
     public float gunAimPositionYOffset = 0f;
     public float gunAimPositionXOffset = 0f;
     public float gunAimPositionZOffset = 0f;
@@ -140,7 +140,7 @@ public class gunManager : MonoBehaviour
     }
 
     /*
-     * the method fire plays the sound for the bullet, create the shall of the bullet that get expelled from the side of gun
+     * the method fire plays the sound for the bullet, create the shall of the bullet that get expelled from the side of gunAdditional
      * then the method create a raycast to the range before the bullet fall, if doesn't hit anything the method checkHitAtRange
      * is called to start the calculation for the bullet fall 
      */
@@ -170,7 +170,7 @@ public class gunManager : MonoBehaviour
                 lastBulletPosition.position = new Vector3(0, 0, 0);
 
                 /*
-                 * the next three line are used to drop a bullet shell from the side of the gun
+                 * the next three line are used to drop a bullet shell from the side of the gunAdditional
                  */
                 GameObject actualShell = (GameObject)Instantiate(bulletShellGO, bulletShell.position, bulletShell.rotation);
                 actualShell.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * -10 * Time.deltaTime, ForceMode.Impulse);

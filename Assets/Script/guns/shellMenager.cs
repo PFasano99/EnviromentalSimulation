@@ -25,7 +25,7 @@ public class shellMenager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("gun") == false)
+        if (collision.gameObject.CompareTag("gunAdditional") == false)
             bulletShotAudio.PlayOneShot(bulletAudio, volume);      
     }
 }
