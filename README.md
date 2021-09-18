@@ -28,15 +28,16 @@ Features list:
 - Picking up items  
 - Dropping items
 - Basic fire and reload  
-- recoil bullets spread
+- Recoil bullets spread
 - Pickup gadjets that attach to the weapons
 - Toggle on/off gasjets
 - Toggle Auto/SemiAuto fire mode 
 - Granades throwing
 - Smoke granades 
 - Added friend and foe targets
-- Added basic shooting range to try weapons
-- Added basic barricades building system  
+- Added shooting range to try weapons
+- Added barricades building system  
+- Added barricades destructibility
 
 *This list will be updated as soon as new features are committed.*
 
