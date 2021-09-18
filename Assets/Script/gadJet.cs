@@ -21,8 +21,10 @@ public class gadJet : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<gunManager>().isHold)
+
+        if (Input.GetKeyDown(KeyCode.Q) && GetComponentInParent<Transform>().gameObject.GetComponentInParent<gunManager>() && isHold)
         {
+            if(GetComponentInParent<Transform>().gameObject.GetComponentInParent<gunManager>().isHold)
             useGadjet();
         }
     }

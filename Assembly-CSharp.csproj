@@ -65,7 +65,6 @@
     <Compile Include="Assets\Script\guns\shellMenager.cs" />
     <Compile Include="Assets\Script\objectBuilding.cs" />
     <Compile Include="Assets\Script\guns\ammoMenager.cs" />
-    <Compile Include="Assets\Script\chackCollisons.cs" />
     <Compile Include="Assets\Script\boxMenager.cs" />
     <Compile Include="Assets\Script\itemsMenager.cs" />
     <Compile Include="Assets\Script\targests\exitRange.cs" />
@@ -74,6 +73,7 @@
     <Compile Include="Assets\Script\guns\gunManager.cs" />
     <Compile Include="Assets\Script\plateMenager.cs" />
     <Compile Include="Assets\Script\granades\granadeManager.cs" />
+    <Compile Include="Assets\Script\healtManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

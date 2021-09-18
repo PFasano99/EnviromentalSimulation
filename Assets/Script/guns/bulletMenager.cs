@@ -35,7 +35,7 @@ public class bulletMenager : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("gunAdditional") == false)
+        if (collision.gameObject.CompareTag("gun") == false)
         {
             hasHit = true;
         }

@@ -42,10 +42,12 @@ public class objectBuilding : MonoBehaviour
                 StopCoroutine(buildTick());
                 buildingTime = 0;
             }
-
         }
     }
 
+    /*
+     * this method checks if all objects that must be built before thid one are built 
+     */
     public bool areAllParentBuild()
     {
         foreach(GameObject g in parentNedded)
@@ -64,8 +66,7 @@ public class objectBuilding : MonoBehaviour
             {
                 GetComponent<MeshRenderer>().material = toBuildMaterial;
                 inRange = true;
-            }
-            
+            }            
         }
     }
 
@@ -78,7 +79,6 @@ public class objectBuilding : MonoBehaviour
                 GetComponent<MeshRenderer>().material = toBuildMaterial;
                 inRange = true;
             }
-
         }
     }
 
@@ -105,7 +105,8 @@ public class objectBuilding : MonoBehaviour
             if(buildingTime <= buildTimeNeeded && !isBuilt)
             {
                 isBuilt = true;
-                Instantiate(building, transform.position, transform.rotation);
+                GameObject toSpawn = Instantiate(building, transform.position, transform.rotation);
+                toSpawn.transform.parent = transform;
                 GetComponent<MeshRenderer>().material = invisibleMaterial;
                 StopCoroutine(buildCoroutine);
             }

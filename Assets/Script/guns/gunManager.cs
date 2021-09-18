@@ -10,7 +10,7 @@ public class gunManager : MonoBehaviour
 
     public Transform setRotation;
 
-
+    public float damage = 2f;
     [Header("is the player holding the gunAdditional")]
     public bool isHold;
     [Header("is the gunAdditional reloading ")]
@@ -221,6 +221,11 @@ public class gunManager : MonoBehaviour
 
             GameObject impactEffectGO = (GameObject)Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
             Destroy(impactEffectGO, 2f);
+
+            if (hit.transform.gameObject.GetComponent<healtManager>())
+            {
+                hit.transform.gameObject.GetComponent<healtManager>().healt -= damage;
+            }
         }
         else
         {
@@ -255,6 +260,11 @@ public class gunManager : MonoBehaviour
 
                 GameObject impactEffectGO = (GameObject)Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
                 Destroy(impactEffectGO, 2f);
+
+                if (hit.transform.gameObject.GetComponent<healtManager>())
+                {
+                    hit.transform.gameObject.GetComponent<healtManager>().healt -= damage;
+                }
             }
             else
             {
@@ -327,6 +337,10 @@ public class gunManager : MonoBehaviour
                     hit.rigidbody.AddForce(-hit.normal * bulletSpeed * 10);
                 }
 
+                if (hit.transform.gameObject.GetComponent<healtManager>())
+                {
+                    hit.transform.gameObject.GetComponent<healtManager>().healt -= damage;
+                }
                 contromisura = 500;
             }
             else
