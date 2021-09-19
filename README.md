@@ -5,18 +5,22 @@ This project is a testing for different snippets of C# code in Unity to simulate
 Key mapping
 =======
 The follwoig list rappresent the key mapping:
-- WASD                | Movement
-- Mouse               | Camera rotation
-- Left mouse button   | Use item
-- Right mouse button  | Aim weapon
-- F                   | Pick item up
-- Space bar           | Jump
-- Shift               | Run
-- X                   | Drop item in hand  
-- Q                   | UseGadjet
-- V                   | Switch fire mode (Auto & SemiAuto)
-- G                   | Granades
-- B                   | Use Hammer  
+| KEY               | Feature                           |    
+| ----------------- | --------------------------------- |
+| WASD              | Movement                          |
+| Mouse             | Camera rotation                   |
+| Left mouse button | Use item                          |
+| Right mouse button| Aim weapon                        |
+| F                 | Pick item up                      |  
+| Space bar         | Jump                              |  
+| Shift             | Run                               |
+| X                 | Drop item in hand                 |  
+| Q                 | UseGadjet                         |
+| V                 | Switch fire mode (Auto & SemiAuto)|
+| G                 | Granades                          |  
+| B                 | Use Hammer                        |  
+| Mouse Wheel       | Move plank upwards/downwards      |  
+| Ctrl + Mouse Wheel| Move planks forwards/backwards    |
 
 
 Features
@@ -38,6 +42,7 @@ Features list:
 - Added shooting range to try weapons
 - Added barricades building system  
 - Added barricades destructibility
+- Added dynamically placeable planks 
 
 *This list will be updated as soon as new features are committed.*
 
@@ -46,10 +51,14 @@ Software used
 To oganize this project developement and to make a better list of features in development, features that will be developed, changeLogs and other annotations, trello is being used. [EnviromentalSimulation on Trello](https://trello.com/b/Sj27YJwl/enviromentalsimulation)
 
 To develop this project the following has been used:
-- IDE             | Visula Studio 2019
-- IDE             | Visual Studio Code
-- Game engine     | Unity version 2020.1.4f1
-- 3D Modelling    | Blender version 2.79   | 
-**MOST OF THE MODELS IN THIS PROJECT HAVE NOT BEEN MADE BY ME**
-- Graphics editor | Krita version 4.4.8    | 
-**not every texture in this project have been made by me**
+| Software kind     | Software version     |
+| ----------------  | -------------------  | 
+| IDE               | Visula Studio 2019   |
+| IDE               | Visual Studio Code   | 
+| Game engine       | Unity 2020.1.4f1     |
+| 3D Modelling      | Blender 2.79         | 
+| Graphics editor   | Krita 4.4.8          | 
+
+
+- **MOST OF THE MODELS IN THIS PROJECT HAVE NOT BEEN MADE BY ME**
+- **not every texture in this project have been made by me**
