@@ -19,8 +19,9 @@ public class healtManager : MonoBehaviour
         if (GetComponentInParent<objectBuilding>())
         {
             GetComponentInParent<objectBuilding>().isBuilt = false;
-            GetComponentInParent<objectBuilding>().buildingTime = 0;
-            Destroy(gameObject);
+            GetComponentInParent<objectBuilding>().buildingTime = 0;            
         }
+
+        Destroy(gameObject);
     }
 }

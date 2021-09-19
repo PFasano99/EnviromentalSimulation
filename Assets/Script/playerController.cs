@@ -22,10 +22,13 @@ public class playerController : MonoBehaviour
     public Transform gunHold;
     public Transform gunAdditional;
     public Transform granadeHold;
+    public Transform otherHoldPoint;
+
 
     public bool isRightHandFull = false;
     public bool isAiming = false;
     public bool hasHammer = false;
+    public bool otherHoldFull = false;
 
     private itemsMenager item = null;
     private gunManager gunMenager = null;
@@ -220,6 +223,24 @@ public class playerController : MonoBehaviour
                     hit.collider.gameObject.transform.parent = gunAdditional.gameObject.transform;
                     hit.collider.gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
                 }
+                else if (hit.collider.gameObject.CompareTag("plank"))
+                {
+                    if (hit.collider.gameObject.GetComponent<plankBuilding>())
+                    {
+                        if (!otherHoldFull && !hit.collider.gameObject.GetComponent<plankBuilding>().isBuilt)
+                        {
+                            hit.collider.gameObject.GetComponent<plankBuilding>().isHold = true;
+                            hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                            otherHoldFull = true;
+                            hit.collider.gameObject.transform.parent = otherHoldPoint;
+                            hit.collider.gameObject.transform.localPosition = new Vector3(0f, 0f, 0f);
+                            hit.collider.gameObject.transform.localRotation = Quaternion.Euler(90f, -90f, 90f);
+
+                        }
+                    }
+
+
+                }
             }
 
         }
@@ -263,8 +284,8 @@ public class playerController : MonoBehaviour
         {
             isRightHandFull = false;
 
-            if(GetComponent<gunManager>())
-            item.GetComponent<gunManager>().isHold = false;
+            if (GetComponent<gunManager>())
+                item.GetComponent<gunManager>().isHold = false;
 
             item.transform.localPosition = new Vector3(0f, 0f, 0f);
             item.transform.parent = null;
@@ -279,7 +300,15 @@ public class playerController : MonoBehaviour
         if (gadJet2 != null)
             gadJet2 = null;
 
-
+        if (otherHoldFull)
+        {
+            otherHoldFull = false;
+            otherHoldPoint.gameObject.GetComponentInChildren<plankBuilding>().isHold = false;
+            otherHoldPoint.gameObject.GetComponentInChildren<Rigidbody>().isKinematic = false;
+            otherHoldPoint.gameObject.GetComponentInChildren<MeshRenderer>().material = otherHoldPoint.gameObject.GetComponentInChildren<plankBuilding>().originalMaterial;
+            otherHoldPoint.gameObject.GetComponentInChildren<plankBuilding>().gameObject.transform.localScale = otherHoldPoint.gameObject.GetComponentInChildren<plankBuilding>().originalScale;
+            otherHoldPoint.gameObject.GetComponentInChildren<plankBuilding>().gameObject.transform.parent = null;
+        }
     }
 
     private void aim()
@@ -317,7 +346,7 @@ public class playerController : MonoBehaviour
             granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().rigidbody.isKinematic = false;
             granadeArray[numberOfGranade - 1].transform.position = gunHold.position;
             granadeArray[numberOfGranade - 1].transform.rotation = gameObject.transform.rotation;
-            granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().rigidbody.AddForce((granadeArray[numberOfGranade - 1].transform.up + granadeArray[numberOfGranade - 1].transform.forward ) * granadeManager.thrust, ForceMode.Impulse);
+            granadeArray[numberOfGranade - 1].GetComponent<granadeManager>().rigidbody.AddForce((granadeArray[numberOfGranade - 1].transform.up + granadeArray[numberOfGranade - 1].transform.forward) * granadeManager.thrust, ForceMode.Impulse);
             granadeArray[numberOfGranade - 1] = null;
             numberOfGranade--;
         }

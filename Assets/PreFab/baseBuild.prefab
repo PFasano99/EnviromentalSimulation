@@ -104,6 +104,9 @@ MonoBehaviour:
   buildingTime: 0
   hasParentObject: 0
   parentNedded: []
+  hammerAudio: {fileID: 8300000, guid: 74e336476be774c418fc7b82bcbe063e, type: 3}
+  hammerAudioSource: {fileID: 0}
+  volume: 0.2
 --- !u!65 &632994769
 BoxCollider:
   m_ObjectHideFlags: 0
