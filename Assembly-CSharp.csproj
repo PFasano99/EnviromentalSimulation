@@ -58,10 +58,12 @@
     <Compile Include="Assets\Script\playerController.cs" />
     <Compile Include="Assets\Script\targests\targetRangeManager.cs" />
     <Compile Include="Assets\Script\guns\bulletMenager.cs" />
+    <Compile Include="Assets\Script\building\plankBuilding.cs" />
     <Compile Include="Assets\Script\rope.cs" />
     <Compile Include="Assets\Script\playerRotation.cs" />
     <Compile Include="Assets\Script\healtManager.cs" />
     <Compile Include="Assets\Script\guns\bulletQuantity.cs" />
+    <Compile Include="Assets\Script\building\checkCollision.cs" />
     <Compile Include="Assets\Script\destroyRing.cs" />
     <Compile Include="Assets\Script\guns\shellMenager.cs" />
     <Compile Include="Assets\Script\building\objectBuilding.cs" />
@@ -74,8 +76,8 @@
     <Compile Include="Assets\Script\guns\gunManager.cs" />
     <Compile Include="Assets\Script\plateMenager.cs" />
     <Compile Include="Assets\Script\granades\granadeManager.cs" />
-    <Compile Include="Assets\Script\building\plankBuilding.cs" />
-    <Compile Include="Assets\Script\building\checkCollision.cs" />
+    <Compile Include="Assets\Script\spider\SpiderManager.cs" />
+    <Compile Include="Assets\Script\spider\SpiderLeg.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

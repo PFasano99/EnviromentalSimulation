@@ -43,6 +43,7 @@ Features list:
 - Barricades building system  
 - Barricades destructibility
 - Dynamically placeable planks barricades
+- Programmatically created spider animation (rough)
 
 *This list will be updated as soon as new features are committed.*
 
